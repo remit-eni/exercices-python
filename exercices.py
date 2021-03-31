@@ -10,7 +10,7 @@ def htc_to_ttc(htc_cost: float, discount_rate: float = 0) -> float :
     Exercice 1 :
     Calcule le coût TTC d'un produit.
     discount_rate : taux de réduction compris entre 0 et 1
-    Taux de taxes : 20.6 %
+    Taux de taxes : 20.6 % g
     Retourne un float arrondi à deux décimales
     """
 
