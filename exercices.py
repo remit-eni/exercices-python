@@ -4,8 +4,21 @@ Exercices.
 Implémentez les méthodes ci-dessous.
 Pour executer vos tests il vous faudra utiliser pytest
 """
+from pip._vendor.msgpack.fallback import xrange
+import math
 
-def htc_to_ttc(htc_cost: float, discount_rate: float = 0) -> float :
+
+def htc_to_ttc(htc_cost: float, discount_rate: float = 0) -> float:
+    taxe = 1.206
+
+    if (discount_rate != 0):
+        taxe = taxe - (taxe * discount_rate)
+    if (discount_rate < 0 and discount_rate > 1):
+        print(Exception)
+
+    ttc = round(htc_cost * taxe, 2)
+    return ttc
+
     """
     Exercice 1 :
     Calcule le coût TTC d'un produit.
@@ -14,7 +27,18 @@ def htc_to_ttc(htc_cost: float, discount_rate: float = 0) -> float :
     Retourne un float arrondi à deux décimales
     """
 
-def divisors(value: int = 0):
+
+def divisors(n):
+    factors = []
+
+    for i in range(1, n + 1):
+        if n % i == 0:
+            factors.append(i)
+
+    if factors == [1, n]:
+        return 'PREMIER'
+
+    return factors
     """
     Exercice 2 :
     A partir d'un nombre donné,
